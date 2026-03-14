@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coffey Carpentry & Joinery | Fine Interior Woodwork | Moore County, NC</title>
+  <meta name="description" content="Coffey Carpentry & Joinery — master-level finish carpentry, custom built-ins, fireplace surrounds, and bespoke millwork serving Pinehurst, Southern Pines, and the North Carolina Sandhills." />
+  <meta name="keywords" content="finish carpentry Pinehurst, custom built-ins Southern Pines, fireplace surround Moore County, bespoke millwork NC, joinery North Carolina" />
+
+  <!-- JSON-LD Local Business Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Coffey Carpentry & Joinery",
+    "description": "Master-level finish carpentry, custom built-ins, fireplace surrounds, and bespoke millwork in Moore County, NC.",
+    "url": "https://www.coffeyjoinery.com",
+    "telephone": "(910) 986-0943",
+    "email": "chris@coffeyjoinery.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "210 W Salisbury St",
+      "addressLocality": "Robbins",
+      "addressRegion": "NC",
+      "postalCode": "27325",
+      "addressCountry": "US"
+    },
+    "areaServed": ["Pinehurst", "Southern Pines", "Aberdeen", "Whispering Pines", "Carthage", "Robbins", "Sanford", "Moore County", "Lee County", "Hoke County", "Montgomery County"],
+    "priceRange": "$$$$",
+    "openingHours": "Mo-Fr 08:00-17:00"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --ink:    #141210;
+      --dark:   #1c1917;
+      --mid:    #2a2622;
+      --cream:  #f0ebe3;
+      --warm:   #d4c9b8;
+      --brass:  #b8924a;
+      --brass-light: #d4aa6a;
+      --white:  #faf8f4;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--ink);
+      color: var(--cream);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAVIGATION ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.4rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.4s, padding 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(20,18,16,0.96);
+      backdrop-filter: blur(12px);
+      padding: 1rem 4rem;
+      border-bottom: 1px solid rgba(184,146,74,0.2);
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 1.15rem;
+      letter-spacing: 0.12em;
+      color: var(--cream);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .nav-logo span { color: var(--brass); }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--warm);
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--brass-light); }
+
+    /* ─── HERO ─── */
+    #hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.squarespace-cdn.com/content/v1/6806c3560c48506d3770de30/58372c0f-e608-4e8b-8fd8-cc23c3864b89/Diamond+Creek+Clubhouse+-+Banner+Elk%2C+NC.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      transform: scale(1.04);
+      transition: transform 8s ease-out;
+    }
+    .hero-bg.loaded { transform: scale(1); }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(20,18,16,0.1) 0%,
+        rgba(20,18,16,0.2) 40%,
+        rgba(20,18,16,0.85) 80%,
+        rgba(20,18,16,1) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 4rem 5rem;
+      max-width: 800px;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.9s ease 0.3s, transform 0.9s ease 0.3s;
+    }
+    .hero-content.visible { opacity: 1; transform: translateY(0); }
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 1.2rem;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--brass-light);
+    }
+    .hero-sub {
+      font-size: 0.9rem;
+      color: var(--warm);
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.02em;
+    }
+    .hero-credit {
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      color: rgba(212,201,184,0.55);
+      text-transform: uppercase;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 2.2rem;
+      border: 1px solid var(--brass);
+      color: var(--brass-light);
+      text-decoration: none;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      transition: background 0.25s, color 0.25s;
+      margin-right: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .btn:hover { background: var(--brass); color: var(--ink); }
+    .btn-ghost {
+      border-color: rgba(212,201,184,0.4);
+      color: var(--warm);
+    }
+    .btn-ghost:hover { background: rgba(212,201,184,0.1); color: var(--cream); }
+
+    /* ─── SECTION BASE ─── */
+    section { padding: 7rem 4rem; }
+    .section-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      line-height: 1.2;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .section-title em { font-style: italic; color: var(--brass-light); }
+    .divider {
+      width: 48px;
+      height: 1px;
+      background: var(--brass);
+      margin: 1.5rem 0 2.5rem;
+    }
+
+    /* ─── INTRO STRIP ─── */
+    #intro {
+      background: var(--dark);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      padding: 6rem 4rem;
+    }
+    .intro-text p {
+      color: var(--warm);
+      font-size: 1.05rem;
+      margin-bottom: 1.2rem;
+      line-height: 1.8;
+    }
+    .intro-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .stat {
+      border-left: 1px solid var(--brass);
+      padding-left: 1.2rem;
+    }
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      font-weight: 300;
+      color: var(--brass-light);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--warm);
+      margin-top: 0.4rem;
+    }
+
+    /* ─── WORK / PORTFOLIO ─── */
+    #work { background: var(--ink); }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      margin-top: 3rem;
+    }
+    .portfolio-item {
+      position: relative;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .portfolio-item.featured {
+      grid-column: span 2;
+      aspect-ratio: 16/9;
+    }
+    .portfolio-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease, filter 0.4s;
+      filter: brightness(0.85) saturate(0.9);
+    }
+    .portfolio-item:hover img {
+      transform: scale(1.04);
+      filter: brightness(0.7) saturate(1.1);
+    }
+    .portfolio-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 1.8rem 1.5rem 1.4rem;
+      background: linear-gradient(transparent, rgba(20,18,16,0.88));
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .portfolio-item:hover .portfolio-caption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .portfolio-caption h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--white);
+    }
+    .portfolio-caption p {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--brass-light);
+      margin-top: 0.2rem;
+    }
+
+    /* ─── SERVICES ─── */
+    #services {
+      background: var(--dark);
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin-top: 3rem;
+      border: 1px solid rgba(184,146,74,0.2);
+    }
+    .service-item {
+      padding: 2.5rem 2rem;
+      border-right: 1px solid rgba(184,146,74,0.2);
+      border-bottom: 1px solid rgba(184,146,74,0.2);
+      transition: background 0.3s;
+    }
+    .service-item:hover { background: rgba(184,146,74,0.06); }
+    .service-item:nth-child(3n) { border-right: none; }
+    .service-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      color: rgba(184,146,74,0.3);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .service-item h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 0.8rem;
+    }
+    .service-item p {
+      font-size: 0.85rem;
+      color: var(--warm);
+      line-height: 1.7;
+    }
+
+    /* ─── ABOUT ─── */
+    #about {
+      background: var(--ink);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .about-image {
+      position: relative;
+    }
+    .about-image img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      filter: brightness(0.9) saturate(0.85);
+    }
+    .about-image::before {
+      content: '';
+      position: absolute;
+      top: -1.5rem;
+      left: -1.5rem;
+      right: 1.5rem;
+      bottom: 1.5rem;
+      border: 1px solid rgba(184,146,74,0.3);
+      z-index: -1;
+    }
+    .about-text p {
+      color: var(--warm);
+      font-size: 0.95rem;
+      margin-bottom: 1.2rem;
+      line-height: 1.85;
+    }
+    .about-text p strong {
+      color: var(--cream);
+      font-weight: 400;
+    }
+    .credentials {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+    .credential {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      color: var(--warm);
+    }
+    .credential::before {
+      content: '';
+      width: 20px;
+      height: 1px;
+      background: var(--brass);
+      flex-shrink: 0;
+    }
+
+    /* ─── CONTACT ─── */
+    #contact {
+      background: var(--mid);
+      text-align: center;
+    }
+    #contact .section-title { margin-bottom: 0.8rem; }
+    #contact .divider { margin: 1.5rem auto 2rem; }
+    .contact-sub {
+      color: var(--warm);
+      font-size: 0.95rem;
+      max-width: 480px;
+      margin: 0 auto 2.5rem;
+    }
+    .contact-details {
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      margin-top: 3.5rem;
+      flex-wrap: wrap;
+    }
+    .contact-item {
+      text-align: center;
+    }
+    .contact-item .label {
+      font-size: 0.65rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 0.4rem;
+    }
+    .contact-item a,
+    .contact-item span {
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    .contact-item a:hover { color: var(--brass-light); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--ink);
+      border-top: 1px solid rgba(184,146,74,0.15);
+      padding: 2rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.9rem;
+      color: var(--warm);
+      letter-spacing: 0.1em;
+    }
+    .footer-copy {
+      font-size: 0.72rem;
+      color: rgba(212,201,184,0.4);
+      letter-spacing: 0.08em;
+    }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .footer-links a {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(212,201,184,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--brass-light); }
+
+    /* ─── ANIMATIONS ─── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-up:nth-child(2) { transition-delay: 0.1s; }
+    .fade-up:nth-child(3) { transition-delay: 0.2s; }
+    .fade-up:nth-child(4) { transition-delay: 0.3s; }
+    .fade-up:nth-child(5) { transition-delay: 0.4s; }
+    .fade-up:nth-child(6) { transition-delay: 0.5s; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 2rem; }
+      nav.scrolled { padding: 0.9rem 2rem; }
+      .nav-links { display: none; }
+      section { padding: 5rem 2rem; }
+      #intro { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 2rem; }
+      #about { grid-template-columns: 1fr; gap: 3rem; padding: 5rem 2rem; }
+      .about-image { display: none; }
+      .portfolio-grid { grid-template-columns: 1fr 1fr; }
+      .portfolio-item.featured { grid-column: span 2; }
+      .services-grid { grid-template-columns: 1fr; }
+      .service-item { border-right: none; }
+      .hero-content { padding: 0 2rem 4rem; }
+      footer { padding: 2rem; flex-direction: column; text-align: center; }
+    }
+
+    @media (max-width: 600px) {
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .portfolio-item.featured { grid-column: span 1; }
+      .intro-stats { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#hero" class="nav-logo">Coffey Carpentry <span>&</span> Joinery</a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content" id="heroContent">
+      <p class="hero-eyebrow">Coffey Carpentry &amp; Joinery &mdash; Moore County, North Carolina</p>
+      <h1 class="hero-title">
+        Thirty years of craft.<br>
+        <em>Every joint by hand.</em>
+      </h1>
+      <p class="hero-sub">Master-level finish carpentry and joinery for clients who understand the difference between built and crafted. Based in Robbins, NC — serving Pinehurst, Southern Pines, and communities throughout the North Carolina Sandhills.</p>
+      <a href="#work" class="btn">View the Work</a>
+      <a href="#contact" class="btn btn-ghost">Begin a Conversation</a>
+      <p class="hero-credit">Diamond Creek Golf Clubhouse &mdash; Banner Elk, NC &mdash; Wayne Huizenga Estate</p>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section id="intro">
+    <div class="intro-text fade-up">
+      <p class="section-label">The Craft</p>
+      <h2 class="section-title">Joinery is the <em>art of the detail.</em></h2>
+      <div class="divider"></div>
+      <p>There is a difference between carpentry and joinery — one builds, the other creates. At Coffey Carpentry & Joinery, every fireplace surround, every built-in bookcase, every piece of custom millwork is designed to stop people in a room.</p>
+      <p>Chris Coffey has spent thirty years at the intersection of timber and precision — from leading master carpenter teams on exclusive private estates to hand-milling lumber from his own land in the North Carolina Sandhills.</p>
+      <p>We do not take every job. We take the right ones.</p>
+      <a href="#contact" class="btn" style="margin-top:1rem">Discuss Your Project</a>
+    </div>
+    <div class="intro-stats fade-up">
+      <div class="stat">
+        <div class="stat-number">30</div>
+        <div class="stat-label">Years of Craft</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">NC</div>
+        <div class="stat-label">Licensed Contractor</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">∞</div>
+        <div class="stat-label">No Subcontracted Work</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">1</div>
+        <div class="stat-label">Master Craftsman</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+    <p class="section-label fade-up">Selected Work</p>
+    <h2 class="section-title fade-up">Projects that<br><em>speak for themselves.</em></h2>
+
+    <div class="portfolio-grid">
+
+      <div class="portfolio-item featured fade-up">
+        <img src="https://images.squarespace-cdn.com/content/v1/6806c3560c48506d3770de30/58372c0f-e608-4e8b-8fd8-cc23c3864b89/Diamond+Creek+Clubhouse+-+Banner+Elk%2C+NC.jpg" alt="Diamond Creek Golf Clubhouse, Banner Elk NC" loading="lazy" />
+        <div class="portfolio-caption">
+          <h3>Diamond Creek Golf Clubhouse</h3>
+          <p>Banner Elk, NC &mdash; Wayne Huizenga Estate</p>
+        </div>
+      </div>
+
+      <div class="portfolio-item fade-up">
+        <img src="https://images.squarespace-cdn.com/content/v1/6806c3560c48506d3770de30/e5ff5e40-fe45-4d8e-900b-252b56c64a42/IMG_20250430_160603.jpg" alt="Bespoke Douglas Fir entry door frame" loading="lazy" />
+        <div class="portfolio-caption">
+          <h3>Bespoke Entry Door Frame</h3>
+          <p>Douglas Fir &mdash; Hand-built</p>
+        </div>
+      </div>
+
+      <div class="portfolio-item fade-up">
+        <img src="https://images.squarespace-cdn.com/content/v1/6806c3560c48506d3770de30/bdd1b381-b012-4fd8-abf2-2eb311d7016b/Front+facade%2C+Charming+Lane+home+with+Craftsman+Details+including+Windows.png" alt="Village on Charming Lane, Hendersonville NC" loading="lazy" />
+        <div class="portfolio-caption">
+          <h3>The Village on Charming Lane</h3>
+          <p>Hendersonville, NC &mdash; Craftsman Details</p>
+        </div>
+      </div>
+
+      <div class="portfolio-item fade-up">
+        <img src="https://images.squarespace-cdn.com/content/v1/6806c3560c48506d3770de30/6c618834-6eda-4331-93a7-fa25c1ef2abe/IMG_20250430_113349596_HDR+%28Large%29.jpg" alt="Reclaimed southern yellow pine barn door" loading="lazy" />
+        <div class="portfolio-caption">
+          <h3>Reclaimed Barn Door</h3>
+          <p>Southern Yellow Pine &mdash; 48&Prime; &times; 84&Prime;</p>
+        </div>
+      </div>
+
+      <div class="portfolio-item fade-up">
+        <img src="https://images.squarespace-cdn.com/content/v1/6806c3560c48506d3770de30/359fb7d0-bec2-45e9-8f2b-0a3de572e546/Garden+and+landscape+views+by+Grandfather+Mountain.png" alt="Grandfather Farms, Banner Elk NC" loading="lazy" />
+        <div class="portfolio-caption">
+          <h3>Grandfather Farms</h3>
+          <p>Banner Elk, NC &mdash; Estate Carpentry</p>
+        </div>
+      </div>
+
+      <div class="portfolio-item fade-up">
+        <img src="https://images.squarespace-cdn.com/content/v1/6806c3560c48506d3770de30/693ff815-0575-45ca-a271-d85f1e1c609b/IMG_20250417_193356216.jpg" alt="Reclaimed beams from old textile factory" loading="lazy" />
+        <div class="portfolio-caption">
+          <h3>Reclaimed Textile Mill Beams</h3>
+          <p>Lincolnton, NC &mdash; Salvage & Restore</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <p class="section-label fade-up">What We Do</p>
+    <h2 class="section-title fade-up">The work we<br><em>are known for.</em></h2>
+
+    <div class="services-grid">
+      <div class="service-item fade-up">
+        <div class="service-num">01</div>
+        <h3>Fireplace Surrounds &amp; Built-Ins</h3>
+        <p>Custom floor-to-ceiling fireplace surrounds, bookcases, and alcove systems. Designed around your room, built around your vision. The kind of work that defines a home.</p>
+      </div>
+      <div class="service-item fade-up">
+        <div class="service-num">02</div>
+        <h3>Interior Finish Carpentry</h3>
+        <p>Crown moulding, wainscoting, coffered ceilings, window and door casings. The details that separate a house from a residence. Executed with the precision of a joiner.</p>
+      </div>
+      <div class="service-item fade-up">
+        <div class="service-num">03</div>
+        <h3>Custom Millwork &amp; Cabinetry</h3>
+        <p>Bespoke cabinetry, built-in storage, and custom millwork milled and shaped by hand. No catalogue components. Everything made to fit your exact space and taste.</p>
+      </div>
+      <div class="service-item fade-up">
+        <div class="service-num">04</div>
+        <h3>Furniture Restoration</h3>
+        <p>Antique and heirloom furniture brought back to life. Structural repair, period-correct joinery, sympathetic finishing. We understand what a piece means to a family.</p>
+      </div>
+      <div class="service-item fade-up">
+        <div class="service-num">05</div>
+        <h3>Timber &amp; Reclaimed Wood Work</h3>
+        <p>Exposed beam installation, reclaimed wood feature walls, and timber-framed elements. We source, mill, and install — including timber from our own North Carolina Sandhills property.</p>
+      </div>
+      <div class="service-item fade-up">
+        <div class="service-num">06</div>
+        <h3>Estate &amp; Historic Renovation</h3>
+        <p>Sympathetic renovation of fine homes, historic properties, and private estates. We work alongside architects, interior designers, and owners who demand the highest standard.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-image fade-up">
+      <img src="https://images.squarespace-cdn.com/content/v1/6806c3560c48506d3770de30/ea774720-d482-4697-b436-d975e9a7f704/testing+pv+panel+roof+positioning.jpg" alt="Chris Coffey in his off-grid woodworking workshop, Moore County NC" />
+    </div>
+    <div class="about-text fade-up">
+      <p class="section-label">The Craftsman</p>
+      <h2 class="section-title">Chris Coffey &mdash;<br><em>thirty years, one standard.</em></h2>
+      <div class="divider"></div>
+      <p>Chris Coffey learned carpentry the way it was meant to be learned — on the job, under the instruction of men who did not tolerate shortcuts. Over three decades, that foundation became a career defined by work at the highest end of the craft.</p>
+      <p><strong>Among his most notable projects</strong>: serving as master carpenter and team leader for the Diamond Creek Golf Clubhouse in Banner Elk, NC — an ultra-exclusive private club commissioned by billionaire Wayne Huizenga, owner of the Miami Dolphins and Blockbuster Entertainment. Every timber joint, every detail of the interior carpentry, was executed under Chris's direct supervision.</p>
+      <p>Today, Chris operates from his property deep in the North Carolina Sandhills, where he mills his own timber and maintains a fully equipped joinery workshop. He brings that same exacting standard to every project — whether a fireplace surround in Pinehurst or a historic restoration in Southern Pines.</p>
+      <p><strong>He does not subcontract. He does not cut corners. He does not take jobs he cannot do exceptionally.</strong></p>
+      <div class="credentials">
+        <div class="credential">Licensed General Contractor, State of North Carolina</div>
+        <div class="credential">30+ Years Fine Carpentry &amp; Joinery</div>
+        <div class="credential">Diamond Creek Golf Clubhouse &mdash; Master Carpenter</div>
+        <div class="credential">On-site timber milling, Sandhills NC property</div>
+        <div class="credential">Based in Robbins — serving Moore County &amp; the NC Sandhills</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <p class="section-label fade-up">Get in Touch</p>
+    <h2 class="section-title fade-up">Start with<br><em>a conversation.</em></h2>
+    <div class="divider" style="margin:1.5rem auto 2rem;"></div>
+    <p class="contact-sub fade-up">We take a limited number of projects each year. If you have work that warrants a craftsman, we would like to hear from you.</p>
+    <div style="margin-top:1rem;" class="fade-up">
+      <a href="mailto:chris@coffeyjoinery.com" class="btn">chris@coffeyjoinery.com</a>
+      <a href="tel:9109860943" class="btn btn-ghost">(910) 986-0943</a>
+    </div>
+    <div class="contact-details fade-up">
+      <div class="contact-item">
+        <p class="label">Studio</p>
+        <span>Robbins, NC 27325</span>
+      </div>
+      <div class="contact-item">
+        <p class="label">Service Area</p>
+        <span>Pinehurst · Southern Pines · Aberdeen · Carthage · Whispering Pines · Moore County &amp; surrounding Sandhills</span>
+      </div>
+      <div class="contact-item">
+        <p class="label">Instagram</p>
+        <a href="https://www.instagram.com/chriscoffeyconstruction/" target="_blank" rel="noopener">@chriscoffeyconstruction</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-brand">Coffey Carpentry &amp; Joinery</span>
+    <div class="footer-links">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <span class="footer-copy">&copy; 2026 Coffey Carpentry &amp; Joinery &mdash; Robbins, NC</span>
+  </footer>
+
+  <script>
+    // Nav scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Hero animation
+    const heroBg = document.getElementById('heroBg');
+    const heroContent = document.getElementById('heroContent');
+    setTimeout(() => {
+      heroBg.classList.add('loaded');
+      heroContent.classList.add('visible');
+    }, 100);
+
+    // Scroll fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
