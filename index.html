@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Coffey Carpentry & Joinery | Fine Interior Woodwork | Moore County, NC</title>
-  <meta name="description" content="Coffey Carpentry & Joinery — master-level finish carpentry, custom built-ins, fireplace surrounds, and bespoke millwork serving Pinehurst, Southern Pines, and the North Carolina Sandhills." />
-  <meta name="keywords" content="finish carpentry Pinehurst, custom built-ins Southern Pines, fireplace surround Moore County, bespoke millwork NC, joinery North Carolina" />
+  <meta name="description" content="Coffey Carpentry & Joinery — master-level finish carpentry, custom bar construction, restaurant upfits, fireplace surrounds, and bespoke millwork serving Pinehurst, Southern Pines, and the North Carolina Sandhills." />
+  <meta name="keywords" content="finish carpentry Pinehurst, custom built-ins Southern Pines, fireplace surround Moore County, bespoke millwork NC, joinery North Carolina, custom bar builder NC, restaurant upfit North Carolina, commercial bar construction, epoxy bartop, pub carpentry" />
 
   <!-- JSON-LD Local Business Schema -->
   <script type="application/ld+json">
@@ -13,7 +13,7 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Coffey Carpentry & Joinery",
-    "description": "Master-level finish carpentry, custom built-ins, fireplace surrounds, and bespoke millwork in Moore County, NC.",
+    "description": "Master-level finish carpentry, custom bar construction, restaurant upfits, fireplace surrounds, and bespoke millwork in Moore County, NC.",
     "url": "https://www.coffeyjoinery.com",
     "telephone": "(910) 986-0943",
     "email": "chris@coffeyjoinery.com",
@@ -315,6 +315,179 @@
       margin-top: 0.2rem;
     }
 
+    /* ─── BARS & HOSPITALITY ─── */
+    #bars {
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
+    }
+    #bars::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(184,146,74,0.04) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 80%, rgba(184,146,74,0.03) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .bars-hero-img {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 21/9;
+      overflow: hidden;
+      margin-bottom: 4rem;
+      z-index: 1;
+    }
+    .bars-hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      filter: brightness(0.8) saturate(1.1);
+      transition: transform 0.6s ease;
+    }
+    .bars-hero-img:hover img { transform: scale(1.02); }
+    .bars-hero-img .bars-hero-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 2rem 2rem 1.5rem;
+      background: linear-gradient(transparent, rgba(20,18,16,0.85));
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--brass-light);
+    }
+    .bars-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: start;
+      position: relative;
+      z-index: 1;
+    }
+    .bars-narrative p {
+      color: var(--warm);
+      font-size: 1.05rem;
+      margin-bottom: 1.2rem;
+      line-height: 1.8;
+    }
+    .bars-narrative p strong {
+      color: var(--cream);
+      font-weight: 400;
+    }
+    .bars-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5px;
+    }
+    .bars-gallery-item {
+      position: relative;
+      aspect-ratio: 4/3;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .bars-gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.85) saturate(0.9);
+      transition: transform 0.6s ease, filter 0.4s;
+    }
+    .bars-gallery-item:hover img {
+      transform: scale(1.04);
+      filter: brightness(0.7) saturate(1.1);
+    }
+    .bars-gallery-item .gallery-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 1.2rem 1rem 0.8rem;
+      background: linear-gradient(transparent, rgba(20,18,16,0.88));
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 0.3s, transform 0.3s;
+    }
+    .bars-gallery-item:hover .gallery-caption {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .gallery-caption span {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--brass-light);
+    }
+    .bars-projects {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin-top: 4rem;
+      border: 1px solid rgba(184,146,74,0.2);
+      position: relative;
+      z-index: 1;
+    }
+    .bar-project {
+      padding: 2.5rem 2rem;
+      border-right: 1px solid rgba(184,146,74,0.2);
+      transition: background 0.3s;
+    }
+    .bar-project:last-child { border-right: none; }
+    .bar-project:hover { background: rgba(184,146,74,0.06); }
+    .bar-project h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+    .bar-project .bar-location {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--brass);
+      margin-bottom: 0.8rem;
+    }
+    .bar-project p:not(.bar-location) {
+      font-size: 0.85rem;
+      color: var(--warm);
+      line-height: 1.75;
+    }
+    .bars-capabilities {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+    .bar-cap {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.06em;
+      color: var(--warm);
+    }
+    .bar-cap::before {
+      content: '';
+      width: 16px;
+      height: 1px;
+      background: var(--brass);
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 900px) {
+      .bars-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .bars-gallery { grid-template-columns: 1fr 1fr; }
+      .bars-projects { grid-template-columns: 1fr; }
+      .bar-project { border-right: none; border-bottom: 1px solid rgba(184,146,74,0.2); }
+      .bar-project:last-child { border-bottom: none; }
+      .bars-capabilities { grid-template-columns: 1fr 1fr; }
+      .bars-hero-img { aspect-ratio: 16/9; }
+    }
+    @media (max-width: 600px) {
+      .bars-capabilities { grid-template-columns: 1fr; }
+    }
+
     /* ─── SERVICES ─── */
     #services {
       background: var(--dark);
@@ -504,6 +677,11 @@
     .fade-up:nth-child(5) { transition-delay: 0.4s; }
     .fade-up:nth-child(6) { transition-delay: 0.5s; }
 
+    /* Fallback: show everything if JS hasn't run after 3s */
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up, .hero-content { opacity: 1 !important; transform: none !important; }
+    }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
       nav { padding: 1.2rem 2rem; }
@@ -535,6 +713,7 @@
     <a href="#hero" class="nav-logo">Coffey Carpentry <span>&</span> Joinery</a>
     <ul class="nav-links">
       <li><a href="#work">Work</a></li>
+      <li><a href="#bars">Bars</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -647,6 +826,74 @@
     </div>
   </section>
 
+  <!-- BARS & HOSPITALITY -->
+  <section id="bars">
+    <p class="section-label fade-up">Bars &amp; Hospitality</p>
+    <h2 class="section-title fade-up">Where people gather,<br><em>the woodwork matters.</em></h2>
+    <div class="divider fade-up"></div>
+
+    <div class="bars-hero-img fade-up">
+      <img src="images/dubliner.jpg" alt="Traditional Irish pub interior with carved mahogany back bar and period lighting" loading="lazy" />
+      <div class="bars-hero-caption">Irish Pub Style &mdash; Full Interior Build-Out</div>
+    </div>
+
+    <div class="bars-layout">
+      <div class="bars-narrative fade-up">
+        <p>A bar is not furniture. It is architecture at elbow height — the most touched, most leaned on, most scrutinized surface in any room. Every joint has to hold up under years of hard use. Every finish has to survive spills, heat, and the weight of a crowd.</p>
+        <p>Chris Coffey has been building bars and fitting out restaurants for over twenty-five years. <strong>English-style pubs, Irish bars, high-end social clubs, fine dining rooms</strong> — from custom bartops and back bars to full commercial upfits, all wood, no shortcuts.</p>
+        <p>This is not cabinet work scaled up. This is a specialty — one that requires understanding how a bartender moves, how a patron leans, how light falls across a finish at midnight. Chris builds bars the way they were built in England and Ireland: heavy, beautiful, and meant to last generations.</p>
+      </div>
+
+      <div class="bars-gallery fade-up">
+        <div class="bars-gallery-item">
+          <img src="images/Slainte_Pub_direct.png" alt="Irish whiskey bar with coffered ceiling, stained glass, and brass tap towers" loading="lazy" />
+          <div class="gallery-caption"><span>Irish Pub &mdash; Back Bar &amp; Shelving</span></div>
+        </div>
+        <div class="bars-gallery-item">
+          <img src="images/Scottish_inspired.jpg" alt="Scottish-inspired private bar with curved back bar and clan crests" loading="lazy" />
+          <div class="gallery-caption"><span>Scottish Style &mdash; Private Club Bar</span></div>
+        </div>
+        <div class="bars-gallery-item">
+          <img src="images/Trinity-Vienna-153.jpg" alt="Traditional pub interior with stained glass panels and wood wainscoting" loading="lazy" />
+          <div class="gallery-caption"><span>English Pub &mdash; Stained Glass &amp; Joinery</span></div>
+        </div>
+        <div class="bars-gallery-item">
+          <img src="images/Micro_England.webp" alt="Victorian-era carved mahogany back bar with ornate detailing" loading="lazy" />
+          <div class="gallery-caption"><span>Victorian Back Bar &mdash; Carved Detail</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bars-projects fade-up">
+      <div class="bar-project">
+        <h3>The Half Moon Pub</h3>
+        <p class="bar-location">Athens, GA &mdash; Mid-1990s</p>
+        <p>A complete rebuild of a beloved Athens institution. Full bar construction, interior woodwork, and pub upfit executed in the English style — the kind of place where the woodwork is the atmosphere.</p>
+      </div>
+      <div class="bar-project">
+        <h3>High Country Restaurant &mdash; Bar &amp; Social Club</h3>
+        <p class="bar-location">Banner Elk, NC</p>
+        <p>Custom bar and social club areas for a high-end restaurant in North Carolina's High Country. All-wood construction, bespoke shelving, and finish details built to match the caliber of the dining experience.</p>
+      </div>
+      <div class="bar-project">
+        <h3>High Country Restaurant &mdash; Private Dining</h3>
+        <p class="bar-location">Banner Elk, NC</p>
+        <p>A second fine dining establishment in the High Country — bar, social areas, and interior woodwork built to the same uncompromising standard. Every surface crafted to set the tone of the room.</p>
+      </div>
+    </div>
+
+    <div class="bars-capabilities fade-up">
+      <div class="bar-cap">Custom bartops &amp; back bars</div>
+      <div class="bar-cap">Full pub &amp; restaurant upfits</div>
+      <div class="bar-cap">English &amp; Irish pub style</div>
+      <div class="bar-cap">Custom epoxy work</div>
+      <div class="bar-cap">Shelving &amp; display systems</div>
+      <div class="bar-cap">Reclaimed wood bar construction</div>
+      <div class="bar-cap">Commercial-grade finishing</div>
+      <div class="bar-cap">Social club &amp; private dining</div>
+    </div>
+  </section>
+
   <!-- SERVICES -->
   <section id="services">
     <p class="section-label fade-up">What We Do</p>
@@ -683,6 +930,11 @@
         <h3>Estate &amp; Historic Renovation</h3>
         <p>Sympathetic renovation of fine homes, historic properties, and private estates. We work alongside architects, interior designers, and owners who demand the highest standard.</p>
       </div>
+      <div class="service-item fade-up">
+        <div class="service-num">07</div>
+        <h3>Custom Bars &amp; Restaurant Upfits</h3>
+        <p>Complete bar construction and commercial restaurant upfits — bartops, back bars, shelving, social club interiors, and custom epoxy work. English pub, Irish pub, or fine dining. Built to survive a crowd and define a room.</p>
+      </div>
     </div>
   </section>
 
@@ -703,6 +955,7 @@
         <div class="credential">Licensed General Contractor, State of North Carolina</div>
         <div class="credential">30+ Years Fine Carpentry &amp; Joinery</div>
         <div class="credential">Diamond Creek Golf Clubhouse &mdash; Master Carpenter</div>
+        <div class="credential">Custom bar construction &amp; restaurant upfits &mdash; 25+ years</div>
         <div class="credential">On-site timber milling, Sandhills NC property</div>
         <div class="credential">Based in Robbins — serving Moore County &amp; the NC Sandhills</div>
       </div>
@@ -740,6 +993,7 @@
     <span class="footer-brand">Coffey Carpentry &amp; Joinery</span>
     <div class="footer-links">
       <a href="#work">Work</a>
+      <a href="#bars">Bars</a>
       <a href="#services">Services</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
@@ -765,15 +1019,4 @@
     // Scroll fade-in
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-  </script>
-
-</body>
-</html>
+        if (e.isIntersec
